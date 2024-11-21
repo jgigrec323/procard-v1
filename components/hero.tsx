@@ -17,7 +17,7 @@ const Hero = () => {
         </Link>
       </p>
       {/* Scroll Section */}
-      <div className="hidden absolute -bottom-10 md:flex flex-col items-center text-sm md:text-base">
+      <div className="flex absolute -bottom-10 md:flex flex-col items-center text-sm md:text-base">
         <CiDesktopMouse2 size={24} />
         <p>Scrollez</p>
       </div>
