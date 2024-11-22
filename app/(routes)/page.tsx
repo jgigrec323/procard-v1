@@ -1,3 +1,4 @@
+import CallToAction from "@/components/call-to-action";
 import CardList from "@/components/card-list";
 import Hero from "@/components/hero";
 
@@ -13,7 +14,11 @@ const Main = () => {
       <div className="mt-20 w-full flex justify-center">
         <CardList />
       </div>
-    </section>
+      {/* Call To Action */}
+      <div className="mt-10">
+        <CallToAction></CallToAction>
+      </div>
+    </section> 
   );
 };
 
