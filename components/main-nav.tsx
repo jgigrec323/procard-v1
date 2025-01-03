@@ -30,7 +30,7 @@ const MainNav = () => {
     },
   ];
   return (
-    <nav className="py-2 px-7 md:flex bg-neutral-100 gap-10 rounded-full hidden">
+    <nav className="py-2 px-7 md:flex  gap-10 rounded-full hidden">
       {routes.map((route) => (
         <Link
           key={route.path}
