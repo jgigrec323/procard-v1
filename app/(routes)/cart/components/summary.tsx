@@ -25,19 +25,24 @@ const Summary = () => {
     }
   }, [searchParams, removeAll]);
 
+  // Calculate total price considering cartQuantity
   const totalPrice = items.reduce((total, item) => {
-    return total + Number(item.price);
+    return total + Number(item.price) * item.cartQuantity;
   }, 0);
 
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
-      {
-        productIds: items.map((item) => item.id),
-      }
-    );
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
+        {
+          productIds: items.map((item) => item.id),
+        }
+      );
 
-    window.location = response.data.url;
+      window.location.href = response.data.url; // Redirect to the payment page
+    } catch (error) {
+      toast.error("Failed to initiate checkout.");
+    }
   };
 
   return (
