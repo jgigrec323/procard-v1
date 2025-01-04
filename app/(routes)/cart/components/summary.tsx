@@ -41,7 +41,7 @@ const Summary = () => {
 
       window.location.href = response.data.url; // Redirect to the payment page
     } catch (error) {
-      toast.error("Failed to initiate checkout.");
+      toast.error("Failed to initiate checkout." + error);
     }
   };
 
