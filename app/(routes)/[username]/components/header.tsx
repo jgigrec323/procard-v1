@@ -2,22 +2,8 @@ import React from "react";
 
 const Header: React.FC = () => {
   return (
-    <header style={headerStyle}>
-      <h1 style={titleStyle}>Welcome to Magnifique</h1>
-    </header>
+    <header className="position-relative h-40 w-full bg-gradient-to-r from-purple-100 via-blue-300 to-pink-100 rounded-b-lg flex items-center justify-center"></header>
   );
-};
-
-const headerStyle: React.CSSProperties = {
-  background: "linear-gradient(to right, #ff7e5f, #feb47b)",
-  padding: "20px",
-  textAlign: "center",
-  color: "white",
-};
-
-const titleStyle: React.CSSProperties = {
-  margin: 0,
-  fontSize: "2.5rem",
 };
 
 export default Header;
