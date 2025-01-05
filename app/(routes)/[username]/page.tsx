@@ -1,5 +1,11 @@
+import AboutSection from "./components/about-section";
+
 const ProfilePage = () => {
-  return <div>here the contains goes</div>;
+  return (
+    <div>
+      <AboutSection></AboutSection>
+    </div>
+  );
 };
 
 export default ProfilePage;

@@ -4,13 +4,14 @@ import ProfileInfos from "./components/profile-infos";
 import NavigationBar from "./components/navigation-bar";
 import Header from "./components/header";
 
-const ProfileLayout = ({
+const ProfileLayout = async ({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: { username: string };
 }) => {
+  const { username } = await params;
   return (
     <>
       <Header />
@@ -20,12 +21,12 @@ const ProfileLayout = ({
           <ProfileInfos />
           <div className="w-full">
             <div className="flex justify-center md:justify-start w-full  p-4 rounded-lg">
-              <NavigationBar username={params.username} />
+              <NavigationBar username={username} />
             </div>
           </div>
         </div>
 
-        <div className="my-12 sm:my-16 md:my-20">{children}</div>
+        <div className="my-4 mx-4">{children}</div>
       </div>
     </>
   );

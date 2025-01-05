@@ -20,8 +20,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ username }) => {
   const routes = [
     {
       label: "À propos",
-      path: `/${username}/a-propos`,
-      active: pathname === `/${username}/a-propos`,
+      path: `/${username}/`,
+      active: pathname === `/${username}`,
     },
     {
       label: "Portfolio",
