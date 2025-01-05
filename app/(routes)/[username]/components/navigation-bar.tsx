@@ -17,11 +17,12 @@ interface NavigationBarProps {
 const NavigationBar: React.FC<NavigationBarProps> = ({ username }) => {
   const pathname = usePathname();
 
+  // Define all possible routes
   const routes = [
     {
       label: "À propos",
       path: `/${username}/`,
-      active: pathname === `/${username}`,
+      active: pathname === `/${username}/`,
     },
     {
       label: "Portfolio",
@@ -33,15 +34,51 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ username }) => {
       path: `/${username}/contact`,
       active: pathname === `/${username}/contact`,
     },
+    {
+      label: "Resume",
+      path: `/${username}/resume`,
+      active: pathname === `/${username}/resume`,
+    },
+    {
+      label: "Services",
+      path: `/${username}/services`,
+      active: pathname === `/${username}/services`,
+    },
+    {
+      label: "Products",
+      path: `/${username}/products`,
+      active: pathname === `/${username}/products`,
+    },
+    {
+      label: "Testimonials",
+      path: `/${username}/testimonials`,
+      active: pathname === `/${username}/testimonials`,
+    },
+    {
+      label: "Blog",
+      path: `/${username}/blog`,
+      active: pathname === `/${username}/blog`,
+    },
   ];
+
+  // Determine which tabs to show dynamically based on the user's preference
+  const enabledRoutes = routes.filter((route) => {
+    // For now, all routes are enabled. Replace this condition with dynamic logic
+    // like user preferences from props or an API.
+    return true;
+  });
 
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {routes.map((route) => (
+        {enabledRoutes.map((route) => (
           <NavigationMenuItem key={route.path}>
             <Link href={route.path} legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink
+                className={`${navigationMenuTriggerStyle()} ${
+                  route.active ? "font-bold text-black" : "text-gray-600"
+                }`}
+              >
                 {route.label}
               </NavigationMenuLink>
             </Link>
