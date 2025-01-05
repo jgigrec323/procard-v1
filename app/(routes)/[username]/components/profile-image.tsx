@@ -1,18 +1,15 @@
-import Image from "next/image";
-
 interface ProfileImageProps {
   url: string;
 }
 
 const ProfileImage: React.FC<ProfileImageProps> = ({ url }) => {
   return (
-    <div>
-      <Image
+    <div className="rounded-full w-[160px] h-[160px] overflow-hidden border-2 border-gray-200">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={url}
         alt="Profile Image"
-        width={160}
-        height={160}
-        className="rounded-full border-4 border-black"
+        className="w-full h-full object-cover"
       />
     </div>
   );
