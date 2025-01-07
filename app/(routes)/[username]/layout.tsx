@@ -3,6 +3,7 @@ import React from "react";
 import ProfileInfos from "./components/profile-infos";
 import NavigationBar from "./components/navigation-bar";
 import Header from "./components/header";
+import MobileNavigation from "./components/mobile-navigation-bar";
 
 const ProfileLayout = async ({
   children,
@@ -21,7 +22,12 @@ const ProfileLayout = async ({
           <ProfileInfos />
           <div className="w-full">
             <div className="flex justify-center md:justify-start w-full  p-4 rounded-lg">
-              <NavigationBar username={username} />
+              <div className="md:hidden absolute top-10 right-10">
+                <MobileNavigation username={username} />
+              </div>
+              <div className="hidden md:block">
+                <NavigationBar username={username} />
+              </div>
             </div>
           </div>
         </div>

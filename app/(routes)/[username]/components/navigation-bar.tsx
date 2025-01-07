@@ -21,8 +21,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({ username }) => {
   const routes = [
     {
       label: "À propos",
-      path: `/${username}/`,
-      active: pathname === `/${username}/`,
+      path: `/${username}`,
+      active: pathname === `/${username}`,
     },
     {
       label: "Portfolio",
