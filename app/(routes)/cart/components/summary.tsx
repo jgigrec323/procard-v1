@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
@@ -13,6 +13,7 @@ const Summary = () => {
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
+  const router = useRouter();
 
   useEffect(() => {
     if (searchParams.get("success")) {
@@ -31,9 +32,15 @@ const Summary = () => {
   }, 0);
 
   const onCheckout = async () => {
+    const token = localStorage.getItem("authToken");
+    if (!token) {
+      toast.error("Vous devez vous connecter pour continuer.");
+      router.push("/auth/login");
+      return;
+    }
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/fakecheckout`,
+        `${process.env.NEXT_PUBLIC_API_URL}/checkout`,
         {
           productIds: items.map((item) => item.id),
         }
